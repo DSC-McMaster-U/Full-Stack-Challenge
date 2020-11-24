@@ -17,6 +17,6 @@ Bonus Points:
 * To get started and obtain a free API key go here:
 https://developers.google.com/maps/gmp-get-started
 
-* You will have to create a Google Cloud Platform project and enable the google maps SDK.Follow the on screen instructions to complete the process. 
+* You will have to create a Google Cloud Platform project and enable the google maps SDK. Follow the on screen instructions to complete the process. 
 
 * In index.html, you will have to change the url of the script tag (maps.googleapis.com....) to include your API key. 
