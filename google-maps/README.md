@@ -9,6 +9,8 @@ Bonus Points:
 * Responsive/Mobile layout 
 * Accept input as adress instead of just lon/lat
 * Add a 'use my current location' option
+* Bonus points for the prettiest UI
+* Live updates - markers appear in real time as users sign in
 
 **Hints: **
 * To get started and obtain a free API key go here:
