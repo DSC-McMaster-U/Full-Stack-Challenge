@@ -1,7 +1,8 @@
 # Full-Stack-Challenge
 Googl Maps API Challenge...
 
-**Challenge: **
+**Challenge:**
+
 Create a check-in portal. Users can enter their long/lat position and a marker will appear on the map.
 Store these markers in a cloud database somewhere. Show all the user's positions when someone opens the site. 
 
@@ -12,7 +13,7 @@ Bonus Points:
 * Bonus points for the prettiest UI
 * Live updates - markers appear in real time as users sign in
 
-**Hints: **
+**Hints:**
 * To get started and obtain a free API key go here:
 https://developers.google.com/maps/gmp-get-started
 
