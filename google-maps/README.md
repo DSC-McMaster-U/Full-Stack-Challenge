@@ -7,10 +7,10 @@ Create a check-in portal. Users can enter their long/lat position and a marker w
 Store these markers in a cloud database somewhere. Show all the user's positions when someone opens the site. 
 
 Basic Challenge:
-- [] Create web page
-- [] Generate check-in portal 
-- [] Longitude/Latitude entry
-- [] Display updates on map
+- [ ] Create web page
+- [ ] Generate check-in portal 
+- [ ] Longitude/Latitude entry
+- [ ] Display updates on map
 
 Bonus Points: 
 * Responsive/Mobile layout 
