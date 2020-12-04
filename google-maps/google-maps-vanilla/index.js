@@ -21,8 +21,10 @@ async function getAllMarkers(){
 	const collection = await firebase.firestore().collection('/Locations').get()
 	const markers = []
 	
-	collection.forEach( m => {
-		markers.push()
+	collection.forEach( doc => {
+		markers.push( doc.data() )
 	})
 	
+	console.log(markers)
+	return markers
 }
