@@ -35,8 +35,7 @@ async function getAllMarkers(){
 		
 		const marker = new google.maps.Marker({
 			position: {lat: doc.data().lat, lng: doc.data().long},
-			
-			map: map
+			map: googleMap
 		})
 		
 	})
