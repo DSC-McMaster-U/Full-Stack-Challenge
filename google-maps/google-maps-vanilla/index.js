@@ -17,6 +17,8 @@ function initMap() {
 	})
 }
 
+
+//Fetch Data
 async function getAllMarkers(){
 	const collection = await firebase.firestore().collection('/Locations').get()
 	const markers = []
@@ -27,4 +29,14 @@ async function getAllMarkers(){
 	
 	console.log(markers)
 	return markers
+}
+
+
+
+//Create an entry in the DB
+async function saveLocation(long, lat){
+	await firebase.firestore().collection('/Locations').add({
+		long: long, 
+		lat: lat
+	})
 }
