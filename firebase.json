@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "google-maps/google-maps-vanilla",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
