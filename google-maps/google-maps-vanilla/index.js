@@ -1,3 +1,7 @@
+let googleMap
+
+
+
 // Initialize and add the map
 function initMap() {
 
@@ -15,6 +19,9 @@ function initMap() {
 		position: mcmasterLocation,
 		map: map
 	})
+	
+	
+	googleMap = map
 }
 
 
@@ -25,16 +32,27 @@ async function getAllMarkers(){
 	
 	collection.forEach( doc => {
 		markers.push( doc.data() )
+		
+		const marker = new google.maps.Marker({
+			position: {lat: doc.data().lat, lng: doc.data().long},
+			
+			map: map
+		})
+		
 	})
 	
-	console.log(markers[0])
+	console.log(markers)
 	return markers
 }
 
 
 
 //Create an entry in the DB
-async function saveLocation(long, lat){
+async function saveLocation(){
+	
+	const lat = document.getElementById('latTextBox').value
+	const long = document.getElementById('longTextBox').value
+	
 	await firebase.firestore().collection('/Locations').add({
 		long: long, 
 		lat: lat
