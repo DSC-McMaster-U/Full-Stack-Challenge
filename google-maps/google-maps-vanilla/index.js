@@ -27,7 +27,7 @@ async function getAllMarkers(){
 		markers.push( doc.data() )
 	})
 	
-	console.log(markers)
+	console.log(markers[0])
 	return markers
 }
 
