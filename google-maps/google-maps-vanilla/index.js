@@ -6,13 +6,23 @@ function initMap() {
 	
 	//Create teh map centered at mcmaster
 	const map = new google.maps.Map(document.getElementById("map"), {
-		zoom: 12,
+		zoom: 15,
 		center: mcmasterLocation,
 	});
+
 	
-	//Add a marker at mcmaster
 	const marker = new google.maps.Marker({
 		position: mcmasterLocation,
-		map: map,
-	});
+		map: map
+	})
+}
+
+async function getAllMarkers(){
+	const collection = await firebase.firestore().collection('/Locations').get()
+	const markers = []
+	
+	collection.forEach( m => {
+		markers.push()
+	})
+	
 }

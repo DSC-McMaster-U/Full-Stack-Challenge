@@ -7,10 +7,9 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<meta name='description' content='Google Maps API Challenge for DSC'>
 	<meta name='keywords' content='Google, DSC, McMaster, Maps, API'>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=[YOUR API KEY HERE]&callback=initMap&libraries=&v=weekly"
-		defer></script>
-	<script src='index.js'></script>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFw6Zh6SEqzxQS6eFPCWeapLamHWlgmnM&callback=initMap&libraries=&v=weekly" defer></script>
+	
 	<link rel='stylesheet' href='styles.css'>
 	<title>Google Maps Fullstack Challenge</title>
 </head>
@@ -30,6 +29,34 @@
 		<img src="assets/dscLogo.png" alt="DSC"/>
 		<span class="text">Google DSC - McMaster</span>
 	</div>
+	
+	
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+	
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+	
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		var firebaseConfig = {
+			apiKey: "AIzaSyA9uWl6LhnewpfEqu67bHR-bwt9YeySB78",
+			authDomain: "maps-dsc-tutorial.firebaseapp.com",
+			projectId: "maps-dsc-tutorial",
+			storageBucket: "maps-dsc-tutorial.appspot.com",
+			messagingSenderId: "267352113458",
+			appId: "1:267352113458:web:7f7a93aacf7d5ac46f972b",
+			measurementId: "G-02QGT8YFFJ"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+	
+	<script src='index.js'></script>
 	
 </body>
 
