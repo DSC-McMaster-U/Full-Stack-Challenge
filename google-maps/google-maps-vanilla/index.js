@@ -34,7 +34,11 @@ async function getAllMarkers(){
 		markers.push( doc.data() )
 		
 		const marker = new google.maps.Marker({
-			position: {lat: doc.data().lat, lng: doc.data().long},
+			position: {
+				lat: parseFloat( doc.data().lat ), 
+				lng: parseFloat( doc.data().long )
+			},
+			
 			map: googleMap
 		})
 		
@@ -51,6 +55,19 @@ async function saveLocation(){
 	
 	const lat = document.getElementById('latTextBox').value
 	const long = document.getElementById('longTextBox').value
+	
+	try{
+		const x = parseFloat(lat)
+		const y = parseFloat(long)
+		
+		if(isNaN(x) || isNaN(y)){
+			console.error('Invalid Input')
+			return
+		}
+	}catch(err){
+		console.error('Invalid Input')
+		return
+	}
 	
 	await firebase.firestore().collection('/Locations').add({
 		long: long, 
