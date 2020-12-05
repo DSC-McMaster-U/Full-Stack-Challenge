@@ -23,7 +23,7 @@ body{
 	border-radius: 16px;
 	top: 0;
 	left: 0;
-	padding: 8px;
+	padding: 10px;
 	margin: 16px;
 	height: calc(100% - 48px);
 	background-color: white;
@@ -32,7 +32,7 @@ body{
 
 .dsclogo{
 	position: absolute;
-	right: 0;
+	right: 50px;
 	bottom: 0;
 	margin: 20px;
 	height: 50px;
@@ -50,4 +50,13 @@ body{
 .dsclogo .text{
 	padding-left: 10px;
 	color: rgb(92, 92, 92);
+}
+
+.userInterface .textbox{
+	width: 90%;
+	outline: none !important;
+	border: 1px solid rgb(173, 173, 173);
+	padding: 5px 10px;
+	border-radius: 8px;
+	margin: 0;
 }

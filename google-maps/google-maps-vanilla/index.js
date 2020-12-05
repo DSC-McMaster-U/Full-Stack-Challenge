@@ -73,4 +73,6 @@ async function saveLocation(){
 		long: long, 
 		lat: lat
 	})
+	
+	getAllMarkers()
 }
