@@ -4,31 +4,95 @@ body{
 	height: 100vh;
 	width: 100%;
 	overflow: hidden;
-	
 	font-family: -apple-system, BlinkMacSystemFont,'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	  
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.map{
-	height: 100%;
-	width: 100%;
-	position: relative;
+.map-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10%;
 }
 
-.userInterface{
+.map{
+	height: 70%;
+	width: 70%;
 	position: absolute;
-	border: 1px solid rgb(204, 204, 204);
-	border-radius: 16px;
-	top: 0;
-	left: 0;
-	padding: 8px;
-	margin: 16px;
-	height: calc(100% - 48px);
-	background-color: white;
-	width: min(425px, 100%);
+	top: 20%;
+	border: 2px solid grey;
+	border-radius: 25px;
 }
+
+.searchBox {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+.logout {
+	position: fixed;
+	right: 10px;
+	top: 5px;
+}
+
+.logout button {
+	width: 90px;
+	height: 40px;
+	border-radius: 20px;
+}
+
 
 .dsclogo{
 	position: absolute;
