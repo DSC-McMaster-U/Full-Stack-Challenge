@@ -4,33 +4,105 @@
 <head>
 	<meta charset='UTF-8'>
 	<link rel="icon" href="assets/dscLogo.png" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 	<meta name='description' content='Google Maps API Challenge for DSC'>
 	<meta name='keywords' content='Google, DSC, McMaster, Maps, API'>
 	<script
-		src="https://maps.googleapis.com/maps/api/js?key=[YOUR API KEY HERE]&callback=initMap&libraries=&v=weekly"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBu1797AV7CSx5kxES7OFof2DEd1rNOoo&callback=initMap&libraries=&v=weekly"
 		defer></script>
-	<script src='index.js'></script>
 	<link rel='stylesheet' href='styles.css'>
 	<title>Google Maps Fullstack Challenge</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    	 https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBMYxjd1H1Mwgl5sJMjfUI6kGmCScJM5xU",
+            authDomain: "code-night-4-f0a8d.firebaseapp.com",
+            projectId: "code-night-4-f0a8d",
+            storageBucket: "code-night-4-f0a8d.appspot.com",
+            messagingSenderId: "1015348537722",
+            appId: "1:1015348537722:web:2b5479470ffdfd65bd4ec3",
+            measurementId: "G-9T8N3FM1MJ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
 </head>
 
 <body>
-	<div id="map" class='map'>
+	<nav>
+		<i data-modal-target="#modal" class="info material-icons md-dark md-36" alt="About this app">
+			info
+		</i>
+
+		<i class="logout md-36 material-icons" id="logout-button" alt="Logout">
+			exit_to_app
+		</i>
 		
+		<div class="modal" id="modal">
+			<div class="modal-header">
+				<div class="title">Welcome to my Full Stack Challenge submission!</div>
+				<i data-close-button class="close-button material-icons">
+					clear
+				</i>
+			</div>
+			
+			<div class="modal-body">
+				The purpose of this app was to implement Firebase and interact with the Google Maps API! <br><br>
+				You will notice that all there really is to this is a search bar, and the original spirit of the challenge was
+				to enter a longitude and latitude as an input parameter and place a marker on the map for that location. <br>
+				By leveraging the APIs geocoding feature, we can actually search for any Country, City, Town, business, or co-ordinates
+				and be able to find the location on the map! <br><br>
+
+				You will notice that after you login, several markers are already populated on the map. Every time the app is
+				opened, all the stored markers are drawn on the map, and any new searches will be added to the database as well.
+				<br><br>
+
+				Lastly, if you look around the map at at the current existing markers, you'll find some of my favourite spots
+				that I've traveled to :) <br><br>
+				Enjoy!<br>
+				-Leo
+			</div>
+		</div>
+		<div id="overlay"></div>
+	</nav>
+
+	<div class='searchBox'>
+		<input class="searchInput" id="address" type="textbox" placeholder="Toronto, Canada" />
+		<button id="address-submit" class="searchButton" href="#">
+			<i class="material-icons">
+				search
+			</i>
+		</button>
 	</div>
-	
-	<div class='userInterface'>
-		Put your UI code here... or don't, I can't tell you what to do
-		<br> <br>
-		Note - If the map isn't working check the API key in the script tag above. 
+
+	<div class="map-container">
+		<div id="map" class='map'>
+
+		</div>
 	</div>
-	
+
 	<div class="dsclogo">
-		<img src="assets/dscLogo.png" alt="DSC"/>
+		<img src="assets/dscLogo.png" alt="DSC" />
 		<span class="text">Google DSC - McMaster</span>
 	</div>
-	
+
+	<script src='index.js'></script>
+
 </body>
 
 </html>
