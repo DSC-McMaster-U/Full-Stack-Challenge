@@ -20,9 +20,10 @@
 	<div id="map" class='map'></div>
 	
 	<div class='userInterface'>
-		<input type='text' id='location-input' placeholder="Address">
-		<button onclick="Geocode(event)">Pin to Map</button>
-		<button onclick="getMarkers()">Display Markers</button>
+		<input type='text' id='location-input' placeholder="Address" class="form-control form-control-lg" style="margin-bottom: 5%">
+		<button onclick="Geocode(event)" class="btn btn-block btn-primary">Pin to Map (Enter)</button>
+		<button onclick="toggleMarkers()" id="toggle" class="btn btn-block btn-primary">Click to Turn Markers Off</button>
+		<button onclick="addCurrLocation()" class="btn btn-block btn-primary">Add Current Location</button>
 
 		<div class="card-block"><div id="formatted-address"></div></div>
         <div class="card-block"><div id="address-components"></div></div>
@@ -30,10 +31,10 @@
 	</div>
 	
 	<div class="dsclogo">
+		<span class="text">Hassan Zahid and Talha Asif</span>
 		<img src="assets/dscLogo.png" alt="DSC"/>
 		<span class="text">Google DSC - McMaster</span>
 	</div>
-
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
