@@ -1,4 +1,4 @@
-body{
+body {
 	margin: 0;
 	padding: 0;
 	height: 100vh;
@@ -11,28 +11,33 @@ body{
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.map{
+.map {
 	height: 100%;
 	width: 100%;
 	position: relative;
 }
 
-.userInterface{
+.userInterface {
 	position: absolute;
 	border: 1px solid rgb(204, 204, 204);
 	border-radius: 16px;
-	top: 0;
+	top: 6%;
 	left: 0;
 	padding: 8px;
 	margin: 16px;
-	height: calc(100% - 48px);
-	background-color: white;
+	height: calc(100% - 102px);
 	width: min(425px, 100%);
+
+	background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
 
-.dsclogo{
+.dark {
+	filter: brightness(45%);	
+}
+
+.dsclogo {
 	position: absolute;
-	right: 0;
+	right: 2%;
 	bottom: 0;
 	margin: 20px;
 	height: 50px;
@@ -43,11 +48,11 @@ body{
 	
 }
 
-.dsclogo img{
+.dsclogo img {
 	height: 100%;
 }
 
-.dsclogo .text{
+.dsclogo .text {
 	padding-left: 10px;
 	color: rgb(92, 92, 92);
 }
