@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import {useState} from 'react'
+import {Card, Container, FormControl, Button} from 'react-bootstrap'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	
+	const [url, setUrl] = useState('')
+	
+	function submit(){
+		console.log(url)
+	}
+	
+	return (
+		<div className="App">
+			
+			<Container>
+				<div className="topBar">
+					
+					<FormControl 
+						className='urlBar' 
+						value={url} 
+						onChange={e=>setUrl(e.target.value)}
+					/>
+					
+					<Button  className = 'submitButton' onClick={submit}>Submit</Button>
+				</div>
+				
+				
+				<Card className='mainCard'>
+					<Card.Body>
+						Scraped Content Goes Here!
+					</Card.Body>
+					
+				</Card>
+				
+			</Container>
+			
+		</div>
+	)
 }
 
 export default App;
