@@ -16,7 +16,7 @@ body{
 	font-size: 15pt;
 	padding: 5px 10px;
 	border-radius: 8px;
-	width: calc(100% - 120px);
+	width: calc(100% - 105px);
 }
 
 .submitButton{

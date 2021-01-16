@@ -18,6 +18,7 @@ function App() {
 					
 					<FormControl 
 						className='urlBar' 
+						placeholder='Enter a URL'
 						value={url} 
 						onChange={e=>setUrl(e.target.value)}
 					/>
