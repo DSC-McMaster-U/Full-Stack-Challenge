@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"start-server": "nodemon server/main.js",
-	"start-react": "cd react-challenge && react-scripts start",
-	"build": "cd react-challenge && react-scripts build"
+    "start-server": "nodemon server/main.js",
+    "start-react": "cd react-challenge && react-scripts start",
+    "build": "cd react-challenge && react-scripts build"
   },
   "author": "",
   "license": "ISC",
