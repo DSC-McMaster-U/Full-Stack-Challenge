@@ -4,17 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "nodemon main.js",
+    "init": "npm i && cd client && npm i",
+    "start-server": "nodemon server.js",
     "start-react": "cd client && react-scripts start",
     "build": "cd client && react-scripts build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "react-bootstrap": "^1.4.3"
+    "puppeteer": "^5.5.0",
+    "react-bootstrap": "^1.4.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
