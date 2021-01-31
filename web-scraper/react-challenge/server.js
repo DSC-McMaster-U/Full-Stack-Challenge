@@ -36,19 +36,21 @@ app.post('/api/screenshot', async (req, res)=>{
 		
 		//Upload to azure
 		const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.AZURE_STORAGE_CONNECTION_STRING)
-		const containerClient = blobServiceClient.getContainerClient(process.env.AZURE_STORAGE_CONTAINER)
+		const containerClient = blobServiceClient.getContainerClient('screenshots')
 		const blockBlobClient = containerClient.getBlockBlobClient(blobName)
-		const uploadBlobResponse = await blockBlobClient.upload(screenshot, screenshot.length);
+		await blockBlobClient.upload(screenshot, screenshot.length)
+		
+		const imageURL = 'https://dscwebscraper.blob.core.windows.net/screenshots/' + blobName
 		
 		//Close puppeteer
 		await page.close()
 		await browser.close()
 		
-		return res.json({url:'Works'})
+		return res.json({url:imageURL})
 		
 	} catch (err) {
 		console.error(err)
-		res.status(500).json(JSON.stringify(err))
+		res.status(500).json(err.message)
 	}
 })
 

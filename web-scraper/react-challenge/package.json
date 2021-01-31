@@ -6,6 +6,7 @@
   "scripts": {
     "init": "npm i && cd client && npm i",
     "start-server": "nodemon server.js",
+    "start": "node server.js",
     "start-react": "cd client && react-scripts start",
     "build": "cd client && react-scripts build"
   },
@@ -13,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "@azure/storage-blob": "^12.4.0",
-    "azure-storage": "^2.10.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
