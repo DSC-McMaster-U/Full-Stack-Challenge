@@ -1,0 +1,1 @@
+export AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=fullstackchallenge;AccountKey=YZGhG+YdNWMe5jQa1hoRcAN5FZaXv1vHRx5rNF7Gth3dgKNll3VWe+j2zJDnppdHxXBoBIEQ/3bZz3ss+NsVsQ==;EndpointSuffix=core.windows.net"

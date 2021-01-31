@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 3001;
 const scrape = require('./scrape.js');
 const scrapeData = require('./scrape.js');
 
+server.set('view engine', 'html');
+server.engine('html', require('ejs').renderFile);
+
 server.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -18,10 +21,10 @@ server.get('/', function (req, res) {
 server.use(bodyParser.urlencoded({ extended: false }));
 
 server.post('/scrape', async function (req, res) {
-	res.sendFile(path.join(__dirname + '/index.html'));
 	const url = req.body.url;
-	const img = await scrapeData(url);
-	document.getElementById('tings').src = img;
+	const image = await scrapeData(url);
+	console.log(image);
+	res.render(__dirname + '/index.html', { img: image });
 });
 
 server.listen(PORT);
