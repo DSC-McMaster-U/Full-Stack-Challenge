@@ -15,4 +15,4 @@ async function scrapeData(url) {
 	}
 }
 
-module.exports = scrapeData;
+module.exports = scrapeData

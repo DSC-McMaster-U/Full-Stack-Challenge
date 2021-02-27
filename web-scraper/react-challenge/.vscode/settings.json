@@ -1,0 +1,5 @@
+{
+	"appService.showBuildDuringDeployPrompt": false,
+	"appService.defaultWebAppToDeploy": "/subscriptions/23547834-829e-4539-9e93-377fd1d8e7ac/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/dscchallenge2",
+	"appService.deploySubpath": "."
+}
