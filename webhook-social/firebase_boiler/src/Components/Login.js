@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';
-import { Container, Col, Row, Button, Card, Form } from 'react-bootstrap';
+import { Container, Col, Button, Card, Form } from 'react-bootstrap';
 import app from '../firebase';
 import { AuthContext } from '../Contexts/Auth';
 import './index.css';
@@ -32,31 +32,31 @@ const Login = ({ history }) => {
 
 	return (
 		<Container>
-			<row></row>
-
 			<Col></Col>
 			<Col>
-				<Card className='Card'>
+				<Card className='Card shadow rounded'>
 					<Card.Body className='cardBody'>
-						<Card.Header as='h4'>Log In</Card.Header>
+						<Card.Title as='h4'>Log In</Card.Title>
 						<Form onSubmit={handleLogin}>
 							<Form.Group>
-								<Form.Label>Email</Form.Label>
+								<Form.Label className='label'>Email</Form.Label>
 								<Form.Control name='email' type='email' placeholder='Email' />
 
-								<Form.Label>Password</Form.Label>
+								<Form.Label className='label'>Password</Form.Label>
 								<Form.Control name='password' type='password' placeholder='Password' />
 
-								<Button type='submit'>Log in</Button>
+								<Button className='button' type='submit'>
+									Log in
+								</Button>
 							</Form.Group>
 						</Form>
 					</Card.Body>
 				</Card>
-				<Button onClick={gotoSignup}>or Click Here to Sign Up</Button>
+				<Button className='button shadow rounded' onClick={gotoSignup}>
+					or Click Here to Sign Up
+				</Button>
 			</Col>
 			<Col></Col>
-
-			<Row></Row>
 		</Container>
 	);
 };

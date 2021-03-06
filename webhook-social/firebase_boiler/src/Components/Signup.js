@@ -24,28 +24,32 @@ const SignUp = ({ history }) => {
 	};
 
 	return (
-		<Container history={history}>
+		<Container>
 			<row></row>
 
 			<Col></Col>
 			<Col>
-				<Card className='Card'>
+				<Card className='Card shadow rounded'>
 					<Card.Body className='cardBody'>
-						<Card.Header as='h4'>Sign Up</Card.Header>
+						<Card.Title as='h4'>Sign Up</Card.Title>
 						<Form onSubmit={handleSignUp}>
 							<Form.Group>
-								<Form.Label>Email</Form.Label>
+								<Form.Label className='label'>Email</Form.Label>
 								<Form.Control name='email' type='email' placeholder='Email' />
 
-								<Form.Label>Password</Form.Label>
+								<Form.Label className='label'>Password</Form.Label>
 								<Form.Control name='password' type='password' placeholder='Password' />
 
-								<Button type='submit'>Sign Up</Button>
+								<Button className='button' type='submit'>
+									Sign Up
+								</Button>
 							</Form.Group>
 						</Form>
 					</Card.Body>
 				</Card>
-				<Button onClick={gotoLogin}>or Click Here to Log In</Button>
+				<Button className='button shadow rounded' onClick={gotoLogin}>
+					or Click Here to Log In
+				</Button>
 			</Col>
 			<Col></Col>
 
