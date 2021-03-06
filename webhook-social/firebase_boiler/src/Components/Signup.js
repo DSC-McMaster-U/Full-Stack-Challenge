@@ -1,64 +1,57 @@
-import React, { useRef, useState } from 'react';
-import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../contexts/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { withRouter } from 'react-router';
+import { Container, Col, Row, Button, Card, Form } from 'react-bootstrap';
+import app from '../firebase';
+import './index.css';
 
-export default function Signup() {
-	const emailRef = useRef();
-	const passwordRef = useRef();
-	const passwordConfirmRef = useRef();
-	const { signup } = useAuth();
-	const [error, setError] = useState('');
-	const [loading, setLoading] = useState(false);
-	const history = useHistory();
+const SignUp = ({ history }) => {
+	const handleSignUp = useCallback(
+		async (event) => {
+			event.preventDefault(); // dont reload page
+			const { email, password } = event.target.elements; // get information from forms
+			try {
+				await app.auth().createUserWithEmailAndPassword(email.value, password.value); // firebase API
+				history.push('/');
+			} catch (error) {
+				alert(error); // if wrong alert error
+			}
+		},
+		[history]
+	);
 
-	async function handleSubmit(e) {
-		e.preventDefault();
-
-		if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-			return setError('Passwords do not match');
-		}
-
-		try {
-			setError('');
-			setLoading(true);
-			await signup(emailRef.current.value, passwordRef.current.value);
-			history.push('/');
-		} catch {
-			setError('Failed to create an account');
-		}
-
-		setLoading(false);
-	}
+	const gotoLogin = () => {
+		history.push('/login');
+	};
 
 	return (
-		<>
-			<Card>
-				<Card.Body>
-					<h2 className='text-center mb-4'>Sign Up</h2>
-					{error && <Alert variant='danger'>{error}</Alert>}
-					<Form onSubmit={handleSubmit}>
-						<Form.Group id='email'>
-							<Form.Label>Email</Form.Label>
-							<Form.Control type='email' ref={emailRef} required />
-						</Form.Group>
-						<Form.Group id='password'>
-							<Form.Label>Password</Form.Label>
-							<Form.Control type='password' ref={passwordRef} required />
-						</Form.Group>
-						<Form.Group id='password-confirm'>
-							<Form.Label>Password Confirmation</Form.Label>
-							<Form.Control type='password' ref={passwordConfirmRef} required />
-						</Form.Group>
-						<Button disabled={loading} className='w-100' type='submit'>
-							Sign Up
-						</Button>
-					</Form>
-				</Card.Body>
-			</Card>
-			<div className='w-100 text-center mt-2'>
-				Already have an account? <Link to='/login'>Log In</Link>
-			</div>
-		</>
+		<Container history={history}>
+			<row></row>
+
+			<Col></Col>
+			<Col>
+				<Card className='Card'>
+					<Card.Body className='cardBody'>
+						<Card.Header as='h4'>Sign Up</Card.Header>
+						<Form onSubmit={handleSignUp}>
+							<Form.Group>
+								<Form.Label>Email</Form.Label>
+								<Form.Control name='email' type='email' placeholder='Email' />
+
+								<Form.Label>Password</Form.Label>
+								<Form.Control name='password' type='password' placeholder='Password' />
+
+								<Button type='submit'>Sign Up</Button>
+							</Form.Group>
+						</Form>
+					</Card.Body>
+				</Card>
+				<Button onClick={gotoLogin}>or Click Here to Log In</Button>
+			</Col>
+			<Col></Col>
+
+			<Row></Row>
+		</Container>
 	);
-}
+};
+
+export default withRouter(SignUp);
