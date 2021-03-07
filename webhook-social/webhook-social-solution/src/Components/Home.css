@@ -1,0 +1,19 @@
+.Home{
+	overflow-x: hidden;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.Home .chatList{
+	width: min(100%, 500px);
+}
+
+.Home .chatList h1{
+	text-align: center;
+}
+
+.Home .chatList .bigButton{
+	width: 100%;
+	margin-top: 10px;
+}

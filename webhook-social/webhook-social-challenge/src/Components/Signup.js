@@ -8,13 +8,12 @@ const SignUp = ({ history }) => {
 	const handleSignUp = useCallback(
 		async (event) => {
 			event.preventDefault(); // dont reload page
-			const { email, password, username } = event.target.elements; // get information from forms
+			const { email, password } = event.target.elements; // get information from forms
 			try {
 				await app.auth().createUserWithEmailAndPassword(email.value, password.value); // firebase API
-				await app.auth().signInWithEmailAndPassword(email.value, password.value)
-				await app.auth().updateCurrentUser({displayName:username.value})
 				history.push('/');
 			} catch (error) {
+				console.error(error)
 				alert(error); // if wrong alert error
 			}
 		},
@@ -35,8 +34,6 @@ const SignUp = ({ history }) => {
 						<Card.Title as='h4'>Sign Up</Card.Title>
 						<Form onSubmit={handleSignUp}>
 							<Form.Group>
-								<Form.Label className='label'>Username</Form.Label>
-								<Form.Control name='username' type='text' placeholder='Username' />
 								
 								<Form.Label className='label'>Email</Form.Label>
 								<Form.Control name='email' type='email' placeholder='Email' />

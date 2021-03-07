@@ -1,5 +1,7 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
+
+console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 
 const app = firebase.initializeApp({
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,6 +12,10 @@ const app = firebase.initializeApp({
 	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 });
+
+if (process.env.NODE_ENV === 'development') {
+	firebase.functions().useEmulator("localhost", 5000);
+}
 
 export const auth = app.auth();
 export default app;

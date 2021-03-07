@@ -13,6 +13,7 @@ const SignUp = ({ history }) => {
 				await app.auth().createUserWithEmailAndPassword(email.value, password.value); // firebase API
 				history.push('/');
 			} catch (error) {
+				console.error(error)
 				alert(error); // if wrong alert error
 			}
 		},
@@ -25,7 +26,6 @@ const SignUp = ({ history }) => {
 
 	return (
 		<Container>
-			<row></row>
 
 			<Col></Col>
 			<Col>
@@ -34,6 +34,7 @@ const SignUp = ({ history }) => {
 						<Card.Title as='h4'>Sign Up</Card.Title>
 						<Form onSubmit={handleSignUp}>
 							<Form.Group>
+								
 								<Form.Label className='label'>Email</Form.Label>
 								<Form.Control name='email' type='email' placeholder='Email' />
 
